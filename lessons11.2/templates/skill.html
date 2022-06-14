@@ -5,9 +5,9 @@
     <title><h1>HTML document</h1></title>
 </head>
 <body>
-<h1> Найдено со скиллом {{ skill }} {{ number }} </h1>
-<% for candidate in candidates_with_skill %}}
-<p><a href="http://127.0.0.1:5000/candidate/<id>">{{ candidate }}</a></p>
-{% endfor %}}
+<h1> Найдено со скиллом {{ skill_name }} {{ number_of_candidates_with_skill }} </h1>
+{% for candidate in candidates_with_skill=candidates_with_skill %}
+    <p><a href="/skill/<skill_name>">{{ candidate }}</a></p>
+{% endfor%}
 </body>
 </html>

@@ -27,19 +27,19 @@ def get_candidate(id):
 
 def get_candidates_by_name(name):
     """Возвращает кандидата по имени"""
+    list_candidates_by_name = []
     for dict in file:
-        name_ = dict["name"].lower().strip().split()
-        if name in name_:
-            return dict["name"]
+        if name in dict["name"]:
+            list_candidates_by_name.append(dict["name"])
         else:
             pass
+    return list_candidates_by_name
 
 def get_number_candidates_by_name(name):
     """Возвращает количество кандидатов с именем"""
     number_of_candidates = 0
     for dict in file:
-        name_ = dict["name"].lower().strip().split()
-        if name in name_:
+        if name in dict["name"]:
             number_of_candidates += 1
         else:
             pass
@@ -48,12 +48,12 @@ def get_number_candidates_by_name(name):
 
 def get_candidates_by_skill(skill):
     """Возвращает кандидата по навыку"""
-    list_candidates = ""
+    list_candidates = []
     for dict in file:
         list_skills = dict["skills"].lower().strip().split(', ')
         if skill in list_skills:
-            list_candidates += f'{dict["name"]}\n'
-    return '<pre>' + list_candidates + '</pre>'
+            list_candidates.append(dict["name"])
+    return list_candidates
 
 def get_number_of_candidates_with_skill(skill):
     """Возвращает количество кандидатов с навыком"""
