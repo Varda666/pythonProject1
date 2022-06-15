@@ -6,8 +6,10 @@
 </head>
 <body>
 <h1> Найдено со скиллом {{ skill_name }} {{ number_of_candidates_with_skill }} </h1>
-{% for candidate in candidates_with_skill=candidates_with_skill %}
-    <p><a href="/skill/<skill_name>">{{ candidate }}</a></p>
-{% endfor%}
+{% if candidates_with_skill %}
+  {% for dict in candidates_with_skill %}
+     <p><a href="/candidate/{{ dict['id'] }}">{{ dict['name'] }}</a></p>
+  {% endfor %}
+{% endif %}
 </body>
 </html>

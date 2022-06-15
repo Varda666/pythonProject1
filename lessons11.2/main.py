@@ -14,15 +14,13 @@ def get_candidate(id):
 
 @app.route("/search/<name>")
 def get_candidate_by_name(name):
-	name = functions.get_candidates_by_name(name)
-	number = functions.get_number_candidates_by_name(name)
-	return render_template("search.html", name=name, number=number)
+	names = functions.get_candidates_by_name(name.lower())
+	return render_template("search.html", name=names, number=len(names))
 
 @app.route("/skill/<skill_name>")
 def get_candidates_by_skill(skill_name):
-	candidates_with_skill = functions.get_candidates_by_skill(skill_name)
-	number_of_candidates_with_skill = functions.get_number_of_candidates_with_skill((skill_name))
-	return render_template("skill.html", candidates_with_skill=candidates_with_skill, number_of_candidates_with_skill= number_of_candidates_with_skill, skill_name=skill_name)
+	candidates_with_skill = functions.get_candidates_by_skill(skill_name.lower())
+	return render_template("skill.html", candidates_with_skill=candidates_with_skill, number_of_candidates_with_skill= len(candidates_with_skill), skill_name=skill_name)
 
 
 
